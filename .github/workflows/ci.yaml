@@ -23,6 +23,6 @@ jobs:
 
       # Homey manifest/assets validation (Homey App Store "publish" niveau)
       - name: Homey validate (publish level)
-        uses: athombv/github-action-homey-app-validate@v2
+        uses: athombv/github-action-homey-app-validate@master
         with:
           level: publish
