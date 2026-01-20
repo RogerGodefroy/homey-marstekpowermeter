@@ -1,5 +1,3 @@
-'use strict';
-
 const Homey = require('homey');
 
 module.exports = class MarstekCtApp extends Homey.App {

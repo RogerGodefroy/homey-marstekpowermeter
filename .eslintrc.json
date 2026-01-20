@@ -1,3 +1,30 @@
 {
-  "extends": "athom/homey-app"
+  "extends": "athom/homey-app",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": ["app.js"],
+      "parser": "espree",
+      "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+      },
+      "rules": {
+        "@typescript-eslint/no-floating-promises": "off",
+        "@typescript-eslint/no-misused-promises": "off"
+      }
+    },
+    {
+      "files": ["drivers/**/pair/**/*.js"],
+      "env": {
+        "browser": true
+      },
+      "globals": {
+        "Homey": "readonly"
+      }
+    }
+  ]
 }

@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Optioneel maar vaak nuttig als je dependencies hebt (TypeScript, bundlers, etc.)
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        # Als jouw app geen package.json heeft, zet deze stap uit.
+
+      # Homey manifest/assets validation (Homey App Store "publish" niveau)
+      - name: Homey validate (publish level)
+        uses: athombv/github-action-homey-app-validate@v2
+        with:
+          level: publish

@@ -15,7 +15,7 @@ module.exports = class MarstekCtDevice extends Homey.Device {
     this._lastPollTime = null;
 
     await this._ensureOptionalCapabilities();
-    
+
     this._rebuildPayload();
     this._startPolling();
   }
@@ -82,8 +82,7 @@ module.exports = class MarstekCtDevice extends Homey.Device {
         this.log(`Optional capability not available: ${capability}`);
       }
     }
-    
-    
+
     // Ensure phase capabilities exist
     for (const capability of OPTIONAL_PHASE_CAPS) {
       if (this.hasCapability(capability)) {
@@ -114,7 +113,9 @@ module.exports = class MarstekCtDevice extends Homey.Device {
   _startPolling() {
     this._stopPolling();
     const intervalMs = this._settings.poll_interval_seconds * 1000;
-    this._pollTimer = setInterval(() => this._pollOnce(), intervalMs);
+    this._pollTimer = setInterval(() => {
+      this._pollOnce().catch((err) => this.error(err));
+    }, intervalMs);
     this._pollOnce().catch((err) => this.error(err));
   }
 
@@ -173,16 +174,15 @@ module.exports = class MarstekCtDevice extends Homey.Device {
 
   async _updateCapabilities(data) {
     const now = Date.now();
-    const pollIntervalHours = this._settings.poll_interval_seconds / 3600;
 
     if (typeof data.total_power === 'number') {
       await this.setCapabilityValue('measure_power', data.total_power);
-      
+
       // Calculate delivery (import) and production (export) for Homey Energy
       // Positive = import/delivery, Negative = export/production
       const delivery = data.total_power > 0 ? data.total_power : 0;
       const production = data.total_power < 0 ? Math.abs(data.total_power) : 0;
-      
+
       if (this.hasCapability('measure_power.delivery')) {
         await this.setCapabilityValue('measure_power.delivery', delivery);
       }

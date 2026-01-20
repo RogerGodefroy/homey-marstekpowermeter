@@ -10,7 +10,7 @@ module.exports = class MarstekCtDriver extends Homey.Driver {
     session.setHandler('test_connection', async (data) => {
       this.log('[Driver] test_connection handler called with data:', data);
       try {
-        const host = data.host;
+        const { host } = data;
         if (!host) {
           this.log('[Driver] No host provided');
           return { error: 'Host is required' };
@@ -19,10 +19,18 @@ module.exports = class MarstekCtDriver extends Homey.Driver {
 
         // Try discovery with common CT002 defaults
         const discoveryConfigs = [
-          { deviceType: 'HMG50', ctType: 'HME-4', batteryMac: '000000000000', ctMac: '000000000000' },
-          { deviceType: 'HMG50', ctType: 'HME-3', batteryMac: '000000000000', ctMac: '000000000000' },
-          { deviceType: 'HMB50', ctType: 'HME-4', batteryMac: '000000000000', ctMac: '000000000000' },
-          { deviceType: 'HMA50', ctType: 'HME-4', batteryMac: '000000000000', ctMac: '000000000000' },
+          {
+            deviceType: 'HMG50', ctType: 'HME-4', batteryMac: '000000000000', ctMac: '000000000000',
+          },
+          {
+            deviceType: 'HMG50', ctType: 'HME-3', batteryMac: '000000000000', ctMac: '000000000000',
+          },
+          {
+            deviceType: 'HMB50', ctType: 'HME-4', batteryMac: '000000000000', ctMac: '000000000000',
+          },
+          {
+            deviceType: 'HMA50', ctType: 'HME-4', batteryMac: '000000000000', ctMac: '000000000000',
+          },
         ];
 
         let lastError = null;
@@ -47,12 +55,12 @@ module.exports = class MarstekCtDriver extends Homey.Driver {
 
             // Success! Store discovered config for add_device
             this.log(`[Driver] Success with config: ${config.deviceType}/${config.ctType}`);
-            discoveredConfig = {
-              ...config,
+            // eslint-disable-next-line prefer-object-spread
+            discoveredConfig = Object.assign({}, config, {
               host,
               meter_dev_type: response.meter_dev_type,
               meter_mac_code: response.meter_mac_code,
-            };
+            });
 
             return response;
           } catch (err) {
@@ -71,7 +79,7 @@ module.exports = class MarstekCtDriver extends Homey.Driver {
 
     session.setHandler('add_device', async (data) => {
       this.log('[Driver] add_device handler called with data:', data);
-      const host = data.host;
+      const { host } = data;
       if (!host) {
         this.log('[Driver] No host provided in add_device');
         throw new Error('Host is required');
@@ -84,10 +92,10 @@ module.exports = class MarstekCtDriver extends Homey.Driver {
         throw new Error('Please test the connection first');
       }
 
-      const deviceType = discoveredConfig.deviceType;
-      const ctType = discoveredConfig.ctType;
-      const batteryMac = discoveredConfig.batteryMac;
-      const ctMac = discoveredConfig.ctMac;
+      const { deviceType } = discoveredConfig;
+      const { ctType } = discoveredConfig;
+      const { batteryMac } = discoveredConfig;
+      const { ctMac } = discoveredConfig;
       const deviceId = `${batteryMac}-${ctMac}-${deviceType}-${host.replace(/\./g, '-')}`;
 
       const deviceData = {
