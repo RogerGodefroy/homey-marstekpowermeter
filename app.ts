@@ -1,6 +1,4 @@
-'use strict';
-
-import Homey from 'homey';
+const Homey = require('homey');
 
 module.exports = class MarstekCtApp extends Homey.App {
 
