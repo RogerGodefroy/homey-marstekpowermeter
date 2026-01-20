@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+     viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+  <!-- P1 Dongle body -->
+  <rect x="20" y="30" width="50" height="30" rx="3" fill="#333" stroke="#000" stroke-width="1.5"/>
+  
+  <!-- USB connector (left side) -->
+  <rect x="15" y="38" width="8" height="14" rx="1" fill="#666" stroke="#000" stroke-width="1"/>
+  <rect x="16" y="39" width="6" height="12" fill="#999"/>
+  
+  <!-- LED indicator -->
+  <circle cx="35" cy="45" r="2" fill="#0f0"/>
+  <circle cx="35" cy="45" r="3" fill="#0f0" opacity="0.3"/>
+  
+  <!-- Antenna/WiFi symbol -->
+  <path d="M 55 40 L 60 35 M 55 45 L 62 38 M 55 50 L 64 41" stroke="#666" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- P1 text label -->
+  <text x="50" y="58" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">P1</text>
+  
+  <!-- Connection lines (representing CT clamps) -->
+  <line x1="10" y1="45" x2="20" y2="45" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+  <line x1="10" y1="50" x2="20" y2="50" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- CT clamp indicators -->
+  <circle cx="8" cy="45" r="2" fill="#666"/>
+  <circle cx="8" cy="50" r="2" fill="#666"/>
+</svg>

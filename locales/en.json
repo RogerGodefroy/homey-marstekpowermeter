@@ -1,0 +1,7 @@
+{
+  "measure_power": "Power (Total)",
+  "measure_power.l1": "Power (Phase A)",
+  "measure_power.l2": "Power (Phase B)",
+  "measure_power.l3": "Power (Phase C)",
+  "measure_signal_strength": "Signal Strength"
+}

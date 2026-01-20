@@ -1,0 +1,29 @@
+{
+  "id": "nl.rogergodefroy.marstekctpowermeter",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Marstek CT002/CT003 power meter"
+  },
+  "description": {
+    "en": "Read power of your Marstek CT002 and CT003 power meter"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "brandColor": "#667eea",
+  "author": {
+    "name": "Roger Godefroy",
+    "email": "rogergodefroy@gmail.com"
+  }
+}

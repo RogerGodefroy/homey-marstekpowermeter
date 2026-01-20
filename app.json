@@ -1,0 +1,194 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "nl.rogergodefroy.marstekctpowermeter",
+  "version": "1.0.0",
+  "compatibility": ">=12.4.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Marstek CT002/CT003 power meter"
+  },
+  "description": {
+    "en": "Read power of your Marstek CT002 and CT003 power meter"
+  },
+  "category": [
+    "energy"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "brandColor": "#667eea",
+  "author": {
+    "name": "Roger Godefroy",
+    "email": "rogergodefroy@gmail.com"
+  },
+  "drivers": [
+    {
+      "id": "marstek_ct",
+      "name": {
+        "en": "Marstek CT Smart Meter"
+      },
+      "class": "sensor",
+      "images": {
+        "small": "/drivers/marstek_ct/assets/images/small.png",
+        "large": "/drivers/marstek_ct/assets/images/large.png",
+        "xlarge": "/drivers/marstek_ct/assets/images/xlarge.png"
+      },
+      "capabilities": [
+        "measure_power",
+        "measure_power.delivery",
+        "measure_power.production",
+        "measure_power.l1",
+        "measure_power.l2",
+        "measure_power.l3",
+        "measure_signal_strength"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "title": {
+            "en": "Power (Total)",
+            "nl": "Vermogen (Totaal)"
+          }
+        },
+        "measure_power.l1": {
+          "title": {
+            "en": "Power (Phase A)",
+            "nl": "Vermogen (Fase A)"
+          }
+        },
+        "measure_power.l2": {
+          "title": {
+            "en": "Power (Phase B)",
+            "nl": "Vermogen (Fase B)"
+          }
+        },
+        "measure_power.l3": {
+          "title": {
+            "en": "Power (Phase C)",
+            "nl": "Vermogen (Fase C)"
+          }
+        },
+        "measure_power.delivery": {
+          "title": {
+            "en": "Power Delivery",
+            "nl": "Vermogen Afname"
+          }
+        },
+        "measure_power.production": {
+          "title": {
+            "en": "Power Production",
+            "nl": "Vermogen Teruglevering"
+          }
+        },
+        "measure_signal_strength": {
+          "title": {
+            "en": "Signal Strength",
+            "nl": "Signaalsterkte"
+          }
+        }
+      },
+      "pair": [
+        {
+          "id": "pair",
+          "type": "html",
+          "name": {
+            "en": "Pair Marstek CT"
+          },
+          "description": {
+            "en": "Enter the IP address of your Marstek CT meter"
+          }
+        }
+      ],
+      "settings": [
+        {
+          "id": "host",
+          "type": "text",
+          "label": {
+            "en": "Host (IP or hostname)"
+          }
+        },
+        {
+          "id": "port",
+          "type": "number",
+          "label": {
+            "en": "Port"
+          },
+          "value": 12345,
+          "min": 1,
+          "max": 65535
+        },
+        {
+          "id": "device_type",
+          "type": "text",
+          "label": {
+            "en": "Device type"
+          }
+        },
+        {
+          "id": "ct_type",
+          "type": "text",
+          "label": {
+            "en": "CT type"
+          }
+        },
+        {
+          "id": "battery_mac",
+          "type": "text",
+          "label": {
+            "en": "Battery MAC"
+          }
+        },
+        {
+          "id": "ct_mac",
+          "type": "text",
+          "label": {
+            "en": "CT MAC"
+          }
+        },
+        {
+          "id": "poll_interval_seconds",
+          "type": "number",
+          "label": {
+            "en": "Poll interval (seconds)"
+          },
+          "value": 10,
+          "min": 2,
+          "max": 60
+        },
+        {
+          "id": "timeout_ms",
+          "type": "number",
+          "label": {
+            "en": "Timeout (ms)"
+          },
+          "value": 1500,
+          "min": 500,
+          "max": 5000
+        },
+        {
+          "id": "retries",
+          "type": "number",
+          "label": {
+            "en": "Retries"
+          },
+          "value": 2,
+          "min": 0,
+          "max": 5
+        },
+        {
+          "id": "debug",
+          "type": "checkbox",
+          "label": {
+            "en": "Enable debug logging"
+          },
+          "value": false
+        }
+      ]
+    }
+  ]
+}
