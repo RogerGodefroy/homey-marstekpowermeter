@@ -1,6 +1,6 @@
 {
   "id": "nl.rogergodefroy.marstekctpowermeter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=12.4.0",
   "sdk": 3,
   "platforms": [
@@ -27,5 +27,10 @@
   "author": {
     "name": "Roger Godefroy",
     "email": "rogergodefroy@gmail.com"
+  },
+  "source": "https://github.com/RogerGodefroy/homey-marstekpowermeter",
+  "support": "https://github.com/RogerGodefroy/homey-marstekpowermeter/issues",
+  "bugs": {
+    "url": "https://github.com/RogerGodefroy/homey-marstekpowermeter/issues"
   }
 }
