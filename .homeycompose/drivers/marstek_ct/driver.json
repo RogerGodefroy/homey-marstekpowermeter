@@ -1,7 +1,8 @@
 {
   "id": "marstek_ct",
   "name": {
-    "en": "Marstek CT Smart Meter"
+    "en": "Marstek CT Smart Meter",
+    "nl": "Marstek CT Smart Meter"
   },
   "class": "sensor",
   "images": {
@@ -79,14 +80,16 @@
       "id": "host",
       "type": "text",
       "label": {
-        "en": "Host (IP or hostname)"
+        "en": "Host (IP or hostname)",
+        "nl": "Host (IP of hostname)"
       }
     },
     {
       "id": "port",
       "type": "number",
       "label": {
-        "en": "Port"
+        "en": "Port",
+        "nl": "Poort"
       },
       "value": 12345,
       "min": 1,
@@ -96,35 +99,40 @@
       "id": "device_type",
       "type": "text",
       "label": {
-        "en": "Device type"
+        "en": "Device type",
+        "nl": "Apparaat type"
       }
     },
     {
       "id": "ct_type",
       "type": "text",
       "label": {
-        "en": "CT type"
+        "en": "CT type",
+        "nl": "CT type"
       }
     },
     {
       "id": "battery_mac",
       "type": "text",
       "label": {
-        "en": "Battery MAC"
+        "en": "Battery MAC",
+        "nl": "Battery MAC"
       }
     },
     {
       "id": "ct_mac",
       "type": "text",
       "label": {
-        "en": "CT MAC"
+        "en": "CT MAC",
+        "nl": "CT MAC"
       }
     },
     {
       "id": "poll_interval_seconds",
       "type": "number",
       "label": {
-        "en": "Poll interval (seconds)"
+        "en": "Poll interval (seconds)",
+        "nl": "Poll interval (seconden)"
       },
       "value": 10,
       "min": 2,
@@ -134,7 +142,8 @@
       "id": "timeout_ms",
       "type": "number",
       "label": {
-        "en": "Timeout (ms)"
+        "en": "Timeout (ms)",
+        "nl": "Timeout (ms)"
       },
       "value": 1500,
       "min": 500,
@@ -144,7 +153,8 @@
       "id": "retries",
       "type": "number",
       "label": {
-        "en": "Retries"
+        "en": "Retries",
+        "nl": "Pogingen"
       },
       "value": 2,
       "min": 0,
@@ -154,7 +164,8 @@
       "id": "debug",
       "type": "checkbox",
       "label": {
-        "en": "Enable debug logging"
+        "en": "Enable debug logging",
+        "nl": "Debug logging inschakelen"
       },
       "value": false
     }
